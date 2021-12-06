@@ -1,0 +1,26 @@
+count: SELECT (SELECT COUNT(*) FROM AuditDetailsList) AS countAuditDetailsList,
+(SELECT COUNT(*) FROM ScoringTypes) AS countScoringTypes,
+(SELECT COUNT(*) FROM scoringFormulaInfoModel) AS countScoringFormulaInfoModel,
+(SELECT COUNT(*) FROM auditScoring) AS countAuditScoring,
+(SELECT COUNT(*) FROM auditEntityTable) AS countAuditEntityTable,
+(SELECT COUNT(*) FROM auditQuestion) AS countAuditQuestion,
+(SELECT COUNT(*) FROM auditEntityTypes) AS countauditEntityTypes,
+(SELECT COUNT(*) FROM auditEntityTypeQuestions) AS countauditEntityTypeQuestions,
+(SELECT COUNT(*) FROM auditCorrectiveActions) AS countauditCorrectiveActions,
+(SELECT COUNT(*) FROM auditFailureReason) AS countauditFailureReason,
+(SELECT COUNT(*) FROM auditAdditionalFields) AS countauditAdditionalFields,
+(SELECT COUNT(*) FROM auditAdditionalFieldTypeValues) AS countauditAdditionalFieldTypeValues,
+(SELECT COUNT(*) FROM auditAdditionalFieldEntityTypes) AS countauditAdditionalFieldEntityTypes,
+(SELECT COUNT(*) FROM size) AS countsize,
+(SELECT COUNT(*) FROM auditTeamTask) AS countauditTeamTask,
+(SELECT COUNT(*) FROM teamDetails) AS countteamDetails,
+(SELECT COUNT(*) FROM userDetails) AS countuserDetails,
+(SELECT COUNT(*) FROM userPermission) AS countuserPermission,
+(SELECT COUNT(*) FROM occurrenceScheduleDates) AS countoccurrenceScheduleDates,
+(SELECT COUNT(*) FROM auditEnforceTimeData) AS countauditEnforceTimeData,
+(SELECT COUNT(*) FROM auditGroups) AS countauditGroups;
+
+gettable : select  DISTINCT tbl_name
+from sqlite_master
+where type='table'
+and tbl_name not like 'sqlite_%';
